@@ -1,380 +1,169 @@
 <!DOCTYPE html>
-<html> <head> <style>
-    .flex-container {
-      display: flex;  flex-direction:row;
-      background-color: red;
-  }
+<html lang="en">
 
-.flex-container > div {  /*div children of the flex container*/
-  background-color: #f1f1f1; 
-  margin: 10px;  padding: 20px;  font-size: 30px;
-}
+<head>
+    <title>Hunter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-/* Responsive layout */
-@media (max-width: 600px) { 
-	 .flex-container{
-		 flex-direction:column;
-		 background-color: green;
-	  }
-	}
-</style></head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
-  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
-  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" 
-  integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
 
-    </head>
-    <body>
-        <h1 id ="head">Find the mouse by Praveen Babu Narni</h1>
-        <div >Click on the bushes to search for the mouse, beware the cat</div>
-        <div class="flex-container">
-        <div id ="bushes">Number of bushes checked is zero</div>
-        <div id = "penalty">Penalty is zero</div>
-        <div onclick="help()">Click for help</div>
-        <div id ="help">Help report</div></h1>
+</head>
+
+<body>
+    <h1>Find the mouse by Praveen Babu Narni</h1>
+    <div class="container border bg-dark" style="padding-top: 10px; color: white;">
+        <p>Click on the bushes to search for the mouse, beware the cat</p>
+    </div>
+    <div class="container border bg-danger" id="bushes" style="padding-top: 10px; color: white;">
+        <p>Number of bushes checked is zero</p>
+    </div>
+    <div class="container border bg-success" id="penalty" style="padding-top: 10px; color: white;">
+        <p>Penalty is zero</p>
+    </div>
+    <div class="container border bg-info" style="padding-top: 10px; color: white;">
+        <p onclick="help()">Click for help</p>
+    </div>
+    <div class="container border bg-secondary" id="help" style="padding-top: 10px; color: white;">
+        <p>Help report</p>
+    </div><br>
+    <div class="container">
+        <button type="button" class="btn btn-primary" onclick="newGame()">New Game</button>
+    </div>
+    <br>
+
+
+    <div class="container">
+        <div class="image-row d-flex">
+            <div>
+                <img id="s0" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(0)">
+                <img id="s1" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(1)">
+                <img id="s2" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(2)">
+                <img id="s3" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(3)">
+                <img id="s4" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(4)">
+                <img id="s5" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(5)">
+            </div>
         </div>
-        <div class="image-grid d-flex flex-column justify-content-center align-items-center"></div>
-        <div class="row">
-            <div class="col-sm-1"><img src="Bush.jpg " onclick="check(0)" id = "id0"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;"></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(1)" id = "id1" alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(2)"id = "id2"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(3)"id = "id3"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(4)"id = "id4"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(5)"id = "id5"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            
-</div>
-
-
-
-        <div class="image-grid d-flex flex-column justify-content-center align-items-center"></div>
-        <div class="row">
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(6)"id = "id6"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(7)"id = "id7"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;"></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(8)"id = "id8"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(9)"id = "id9"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;"></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(10)"id = "id10"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(11)"id = "id11"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            
-            
+        <div class="image-row d-flex">
+            <div>
+                <img id="s6" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(6)">
+                <img id="s7" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(7)">
+                <img id="s8" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(8)">
+                <img id="s9" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(9)">
+                <img id="s10" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(10)">
+                <img id="s11" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(11)">
+            </div>
         </div>
-
-        <div class="image-grid d-flex flex-column justify-content-center align-items-center"></div>
-        <div class="row">
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(12)"id = "id12"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(13)"id = "id13"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(14)"id = "id14"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(15)"id = "id15"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(16)"id = "id16"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg"  onclick="check(17)"id = "id17"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-           
-            
-            
+        <div class="image-row d-flex">
+            <div>
+                <img id="s12" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(12)">
+                <img id="s13" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(13)">
+                <img id="s14" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(14)">
+                <img id="s15" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(15)">
+                <img id="s16" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(16)">
+                <img id="s17" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(17)">
+            </div>
         </div>
-        <div class="image-grid d-flex flex-column justify-content-center align-items-center"></div>
-        <div class="row">
-            <div class="col-sm-1"><img src="Bush.jpg" onclick="check(18)"id = "id18"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg" onclick="check(19)"id = "id19" alt="tree" style="width: 100px;height: 100px; padding-bottom:  5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg" onclick="check(20)"id = "id20"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg" onclick="check(21)"id = "id21"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg" onclick="check(22)"id = "id22"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            <div class="col-sm-1"><img src="Bush.jpg" onclick="check(23)"id = "id23"  alt="tree" style="width: 100px;height: 100px; padding-bottom: 5%;" ></div>
-            
-        
+        <div class="image-row d-flex">
+            <div>
+                <img id="s18" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(18)">
+                <img id="s19" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(19)">
+                <img id="s20" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(20)">
+                <img id="s21" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(21)">
+                <img id="s22" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(22)">
+                <img id="s23" src="Bush.jpg" alt="Bushes" height="125" width="125" onclick="check(23)">
+            </div>
         </div>
-        <script>
-          let id='id';
-          let checkCount=0;
-          let penalty=0;
-          let lastCheck=0;
-          let mouseLocation=13;
-          let catLocation=21;
-          let gameOver=false;
-          let ids=[ ];
-          for(let i=0;i<=23;i++){
-              ids[i]=id+i;
-              
-             // console.log(ids[i]);
-          }  
-          function check(position){
-            if(gameOver==true){
+    </div>
+    <script>
+        var ids = ["s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10",
+            "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18", "s19", "s20", "s21", "s22", "s23"]
+        var checkCount = 0
+        var penalty = 0
+        var lastCheck = 0
+        var mouseLocation = 13
+        var catLocation = 21
+        let gameOver = false
+        function check(position) {
+            if (gameOver) {
+                return;
+            }
+            var id = ids[position]
+            img = document.getElementById(id);
+            if (position == mouseLocation) {
+                img.src = "mouse.jpg";
+                gameOver = true;
+                penalty -= 3;
 
             }
-            else{
-                if(position==13){
-                    id=ids[position]
-                    document.getElementById(id).src="Mouse.jpg";
-                    gameOver=true;
-                    penalty=penalty-3;
-                    console.log("image is mouse "+position);
-                    console.log("penalty is "+penalty);
-                    console.log("GameOver");
-                }
-                else if(position==21){
-                    id=ids[position]
-                    document.getElementById(id).src="Tiger.jpg";
-                    gameOver=true;
-                    penalty=penalty+4;
-                    console.log("image is cat "+position);
-                    console.log("penalty is "+penalty);
-                    console.log("GameOver");
-                }
-                else {
-                    id=ids[position]
-                    document.getElementById(id).src="Grass.jpg";
-                    checkCount+=1;
-                    penalty+=1;
-                    console.log("checkcount is "+checkCount);
-                    console.log("penalty is " +penalty);
-                }
-                lastCheck=position;
-                console.log("lastCheck position is "+lastCheck);
-              
+            else if (position == catLocation) {
+                img.src = "tiger.png";
+                gameOver = true;
+                penalty += 4;
             }
-             
-            bushes.innerHTML="Number of bushes checked is "+checkCount;
-            penalty.innerHTML="Penalty is "+penalty;
-            
-            
+            else {
+                img.src = "grass.jpg";
+            }
+            checkCount = checkCount + 1;
+            penalty = penalty + 1;
+
+            document.getElementById("bushes").innerHTML = "Number of bushes checked is: " + checkCount;
+            document.getElementById("penalty").innerHTML = "penalty is: " + penalty;
+            lastCheck = position;
         }
-        let row=0;
-        let row1=0;
-        let row2=0
-        let col1=0;
-        let col=0;
-        let col2=0;
-        
-        function help(){
-            console.log(lastCheck);
-            col=13%6;
-            col=col+1;
-            row=Math.round(13/4);
-            console.log("cat-------****");
-            console.log("col is "+col);
-            console.log("row is "+row);
-            row1=Math.round(lastCheck/4);
-            console.log("row1 before "+row1);
-            col1=lastCheck%6;
-            console.log("col1 before "+col1);
-            if(row1==0){
-            row1=row1+1;
-            col1=col1+1;}
-            else if(row1==5){
-                row1=row1-1;
-            }
-            else if(row1==6){
-                row1=row1-2;
-            }
-            else{
-                if(row1==4 && col1==0){col1=col1+1;}
-                else if(row1==3 && col1==0){col1=col1+1} 
-                else{
+        function help() {
+            console.log(lastCheck)
+            const catRow = Math.floor(catLocation / 4);
+            const catColumn = catLocation % 6;
+            const mouseRow = Math.floor(mouseLocation / 4);
+            const mouseColumn = mouseLocation % 6;
+            const lastRow = Math.floor(lastCheck / 4);
+            const lastColumn = lastCheck % 6;
+            console.log(catRow)
+            console.log(catColumn)
+            console.log(mouseRow)
+            console.log(mouseColumn)
+            console.log(lastRow)
+            console.log(lastColumn)
+            penalty = penalty + 2;
+            document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
 
-                }
-            }
-            if(col1==5){
-                col1=col1+1;
-            }
-            else if(col1==4){
-                col1=col1+1;
-            }
-            else if(col1==0){
-                col1=col1+1;
-            }
-            else if(row1==4 && col1==3){
-                    row1=row1-1;
-                    col1=col1+1;
-            }
-            else if(row1==2 && col1==3){
-                    //row1=row1-1;
-                    col1=col1+1;
-                }
-            console.log("col1 is"+col1);
-            console.log("row1 is"+row1);
-           // console.log("CAT first "+ (row1+1==row && col1+1==col));
-           // console.log("CAT last "+(row1-1==row && col1-1==col));
-           // console.log("CAT Whole "+ (row1+1==row && col1+1==col)||(row1-1==row && col1-1==col));
-            col2=21%6;
-            row2=Math.round(21/4);
-            
-            row2=row2-1;
-            col2=col2+1;
-            console.log("col2 is "+col2);
-            console.log("row2 is "+row2);
-            console.log("row1 is "+row1);
-            console.log("col1 is "+col1);
-           // console.log("MOUSE first "+( row1+1==row2 && col1+1==col2));
-           // console.log("MOUSE last "+(row1-1==row2 && col1-1==col2));
-           // console.log("MOUSE Whole "+ (row1+1==row2 && col1+1==col2)||(row1-1==row2 && col1-1==col2));
-            if((row==row1)){
-                console.log("entered first row compare");
-                if(col>col1){
-                    if(col1+1==col){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="squeek";
-                    //help.innerHTML="Meow"; 
-                    }
-                    else{
-                        console.log("else in first compare");
-                         document.getElementById("help").innerHTML="sorry, no help available";
-                        //help.innerHTML="sorry, no help available"; 
-                         }
-
-                }
-                else{
-                    console.log("entered the else part");
-                    if(col1-1==col){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="squeek";
-                        //help.innerHTML="Meow";  
-                    }
-                    else if(col1==col2){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="Meow";
-    
-                    }
-                    else{
-                        console.log("else");
-                        document.getElementById("help").innerHTML="sorry, no help available";
-                        //help.innerHTML="sorry, no help available"; 
-                         }
-                }
-            }
-            else if((col==col1)){
-                if(row>row1){
-                    if(row1+1==row){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="squeek";
-                    //help.innerHTML="Meow"; 
-                    }
-                    else{
-                    console.log("else");
-                    document.getElementById("help").innerHTML="sorry, no help available";
-                    //help.innerHTML="sorry, no help available"; 
+            if ((Math.abs(catRow - lastRow) <= 1 && Math.abs(catColumn - lastColumn) <= 1) && (Math.abs(catRow - mouseRow) > 1 || Math.abs(catColumn - mouseColumn) > 1)) {
+                document.getElementById("help").innerHTML = "meow";
             }
 
-                }
-                else{
-                    if(row1-1==row){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="squeek";
-                        //help.innerHTML="Meow";  
-                    }
-                    else{
-                        console.log("else");
-                        document.getElementById("help").innerHTML="sorry, no help available";
-                        //help.innerHTML="sorry, no help available"; 
-                     }
-                } 
+            else if ((Math.abs(mouseRow - lastRow) <= 1 && Math.abs(mouseColumn - lastColumn) <= 1) && (Math.abs(catRow - mouseRow) > 1 || Math.abs(catColumn - mouseColumn) > 1)) {
+                document.getElementById("help").innerHTML = "squeak";
             }
-            else if(row1-1==row||row1+1==row){
-                console.log("Enetered diff check 1");
-                if((col1+1==col||col1-1==col)&&(col1<=3)){
-                    console.log("Entered into it");
-                    penalty=penalty+2;
-                    document.getElementById("help").innerHTML="squeek";
-                }
-                else if((col1+1==col2||col1-1==col2)&&(col1>3)){
-                  penalty=penalty+2;
-                    document.getElementById("help").innerHTML="Meow";
-                }
-                else{
-                        console.log("else");
-                        document.getElementById("help").innerHTML="sorry, no help available";
-                        //help.innerHTML="sorry, no help available"; 
-                     }
+            else {
+                document.getElementById("help").innerHTML = "sorry, no help available";
             }
-            else if((row2==row1)){
-                if(col2>col1){
-                    if(col1+1==col2){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="Meow";
-                    //help.innerHTML="squeek"; 
-                    }
-                    else{
-                        console.log("else");
-                        document.getElementById("help").innerHTML="sorry, no help available";
-                        //help.innerHTML="sorry, no help available"; 
-                        }
+        }
 
-                }
-                else{
-                    if(col1-1==col2){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="Meow";
-                        //help.innerHTML="squeek";  
-                    }
-                    else{
-                        console.log("else");
-                        document.getElementById("help").innerHTML="sorry, no help available";
-                        //help.innerHTML="sorry, no help available"; 
-                     }
+        function newGame() {
+            const mouseLocation = Math.floor(Math.random() * 24);
+            const catLocation = Math.floor(Math.random() * 24);
+            const bushesText = "Number of bushes checked is 0";
+            const penaltyText = "Penalty is 0";
 
-                }
-            }
-            else if((col2==col1)){
-                if(row2>row1){
-                    if(row1+1==row2){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="Meow";
-                    //help.innerHTML="squeek"; 
-                    }
-                    else{
-                    console.log("else");
-                    document.getElementById("help").innerHTML="sorry, no help available";
-                    //help.innerHTML="sorry, no help available"; 
-                     }
+            document.getElementById("bushes").innerHTML = bushesText;
+            document.getElementById("penalty").innerHTML = penaltyText;
 
-                }
-                else{
-                    if(row1-1==row2){
-                      penalty=penalty+2;
-                        document.getElementById("help").innerHTML="Meow";
-                       // help.innerHTML="squeek";  
-                    }
-                    else{
-                    console.log("else");
-                    document.getElementById("help").innerHTML="sorry, no help available";
-                //help.innerHTML="sorry, no help available"; 
-                }
-                } 
+            for (let i = 0; i <= 23; i++) {
+                document.getElementById(ids[i]).src = "bush.jpg";
             }
-            else if(row1-1==row2||row1+1==row2){
-                if((col1+1==col2||col1-1==col2)&&(col1>3)){
-                  penalty=penalty+2;
-                    document.getElementById("help").innerHTML="Meow";
-                }
-            }
-            else{
-                console.log("else");
-                document.getElementById("help").innerHTML="sorry, no help available";
-                //help.innerHTML="sorry, no help available"; 
-            }
-            
-            
-            
-
-/*
-            if((row1+1==row && col1+1==col)||(row1-1==row && col1-1==col)){
-               console.log("penalty --"+penalty);
-               penalty=penalty+2;
-               help.innerHTML="Meow";
-            }
-            else if((row1+1==row2 && col1+1==col2)||(row1-1==row2 && col1-1==col2)){
-                console.log("rat-------****");
-               help.innerHTML="squeek";
-               console.log("penalty --"+penalty);
-               penalty=penalty+2;
-            }       
-            else{
-                console.log("else");
-                help.innerHTML="sorry, no help available"; 
-            }*/
-            penalty.innerHTML="Penalty is "+penalty;
-            //document.getElementById("help").innerHTML="sorry";
         }
 
     </script>
-    </body>
-    </html>
+
+
+</body>
+
+</html>
