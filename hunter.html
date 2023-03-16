@@ -98,18 +98,18 @@
             var id = ids[position]
             img = document.getElementById(id);
             if (position == mouseLocation) {
-                img.src = "mouse.jpg";
+                img.src = "Mouse.jpg";
                 gameOver = true;
                 penalty -= 3;
 
             }
             else if (position == catLocation) {
-                img.src = "tiger.png";
+                img.src = "Tiger.jpg";
                 gameOver = true;
                 penalty += 4;
             }
             else {
-                img.src = "grass.jpg";
+                img.src = "Grass.jpg";
             }
             checkCount = checkCount + 1;
             penalty = penalty + 1;
